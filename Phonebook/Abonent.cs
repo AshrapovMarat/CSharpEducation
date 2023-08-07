@@ -7,28 +7,30 @@ using System.Threading.Tasks;
 
 namespace Phonebook
 {
+  /// <summary>
+  /// Класс для абонента телефонной книги.
+  /// </summary>
   internal class Abonent
   {
-    private string username;
-    private string phoneNumber;
-    public string Username
+    /// <summary>
+    /// Имя абонента.
+    /// </summary>
+    public string Name { get; private set; }
+
+    /// <summary>
+    /// Номер телефона абонента.
+    /// </summary>
+    public string PhoneNumber { get; private set; }
+
+    /// <summary>
+    /// Конструктор класса абонента телефонной книги.
+    /// </summary>
+    /// <param name="username">Имя абонента.</param>
+    /// <param name="phoneNumber">Номер телефона абонента.</param>
+    public Abonent(string user, string phoneNumber)
     {
-      get
-      {
-        return username;
-      }
-    }
-    public string PhoneNumber
-    {
-      get
-      {
-        return phoneNumber;
-      }
-    }
-    public Abonent(string username, string phoneNumber)
-    {
-        this.username = username.Trim();
-        this.phoneNumber = phoneNumber.Trim();
+        Name = user.Trim();
+        PhoneNumber = phoneNumber.Trim();
     }
   }
 }
