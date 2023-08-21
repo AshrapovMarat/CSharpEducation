@@ -15,11 +15,14 @@ namespace Phonebook
   {
     private static Phonebook single = null;
 
-    string path = "Phonebook.txt";
+    /// <summary>
+    /// Файл в котором хранится информация записной книжки.
+    /// </summary>
+    private string path = "Phonebook.txt";
 
-    List<Abonent> abonents = new List<Abonent>();
+    private List<Abonent> abonents = new List<Abonent>();
 
-    protected Phonebook() { }
+    private Phonebook() { }
 
     public static Phonebook Initializaton()
     {
@@ -69,7 +72,7 @@ namespace Phonebook
       {
         if (abonents[i].PhoneNumber == phoneNumber)
         {
-          throw new Exception("Номер телефона уже существует");
+          throw new InvalidOperationException("Номер телефона уже существует");
         }
       }
 
@@ -79,7 +82,7 @@ namespace Phonebook
       }
       else
       {
-        throw new Exception("Количества цифр в номере телефона не равно 11 или в нем есть не только цифры.");
+        throw new ArgumentException("Количества цифр в номере телефона не равно 11 или в нем есть не только цифры.");
       }
     }
 
@@ -111,7 +114,7 @@ namespace Phonebook
           return;
         }
       }
-      throw new Exception("Абонент не найден");
+      throw new InvalidOperationException("Абонент не найден");
     }
     
     /// <summary>
@@ -128,7 +131,7 @@ namespace Phonebook
           return;
         }
       }
-      throw new Exception ("Номер не найден");
+      throw new InvalidOperationException("Номер не найден");
     }
 
     /// <summary>
@@ -145,7 +148,7 @@ namespace Phonebook
           return abonents[i].Name;
         }
       }
-      throw new Exception("Абонент не найден");
+      throw new NoSuchElementException("Абонент не найден");
     }
 
     /// <summary>
@@ -162,7 +165,7 @@ namespace Phonebook
           return abonents[i].PhoneNumber;
         }
       }
-      throw new Exception("Абонент не найден");
+      throw new NoSuchElementException("Абонент не найден");
     }
 
     /// <summary>
