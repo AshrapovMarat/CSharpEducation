@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 
 namespace RepositoryForEntities
 {
+  /// <summary>
+  /// Класс для сохранения данных в базе данных.
+  /// </summary>
   internal class ListOfEntitiesInDB : IRepository<IEntity>
   {
     private string connectionString = "";
     private List<Abonent> abonents = new List<Abonent>();
 
     /// <summary>
-    /// Создание сущности
+    /// Создание сущности.
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">Сущность</param>
     public void Create(IEntity entity)
     {
       string sqlExpression = $"INSERT [INTO] Abonent VALUES ('{entity.Number}', '{entity.Name}')";//дописать
@@ -29,6 +32,9 @@ namespace RepositoryForEntities
       }
     }
 
+    /// <summary>
+    /// Чтение сущности.
+    /// </summary>
     public void Read()
     {
       string sqlExpression = "SELECT [Number], [Name] FROM Abonent";//дописать
@@ -49,6 +55,10 @@ namespace RepositoryForEntities
       }
     }
 
+    /// <summary>
+    /// Обновление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Update(IEntity entity)
     {
       Console.Clear();
@@ -61,6 +71,11 @@ namespace RepositoryForEntities
       }
       
     }
+
+    /// <summary>
+    /// Удаление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Delete(IEntity entity)
     {
       Console.Clear();

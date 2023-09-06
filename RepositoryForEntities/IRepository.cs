@@ -7,12 +7,33 @@ using System.Threading.Tasks;
 
 namespace RepositoryForEntities
 {
+  /// <summary>
+  /// Интерфейс реализующий CRUD.
+  /// </summary>
+  /// <typeparam name="T">Сущность</typeparam>
   internal interface IRepository<T> where T : IEntity
   {
+    /// <summary>
+    /// Созадать сущность.
+    /// </summary>
+    /// <param name="entity"></param>
     void Create(T entity);
-    void Read();
-    void Update(T entity);
-    void Delete(T entity);
 
+    /// <summary>
+    /// Прочитать сущность.
+    /// </summary>
+    void Read();
+
+    /// <summary>
+    /// Обновить сущность.
+    /// </summary>
+    /// <param name="entity"></param>
+    void Update(T entity);
+
+    /// <summary>
+    /// Удалить сущность.
+    /// </summary>
+    /// <param name="entity"></param>
+    void Delete(T entity);
   }
 }

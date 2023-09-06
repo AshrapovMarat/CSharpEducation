@@ -9,6 +9,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace RepositoryForEntities
 {
+  /// <summary>
+  /// Класс для сохранения данных в файл.
+  /// </summary>
   internal class ListOfEntitiesInFile : IRepository<IEntity>
   {
     public string Path { private get; set; }
@@ -20,11 +23,10 @@ namespace RepositoryForEntities
       Path = path;
     }
 
-
     /// <summary>
-    /// Создание сущности
+    /// Создание сущности.
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">Сущность</param>
     public void Create(IEntity entity)
     {
       Console.Clear();
@@ -34,6 +36,9 @@ namespace RepositoryForEntities
       }
     }
 
+    /// <summary>
+    /// Чтение сущности.
+    /// </summary>
     public void Read()
     {
       Console.Clear();
@@ -75,6 +80,10 @@ namespace RepositoryForEntities
       }
     }
 
+    /// <summary>
+    /// Обновление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Update(IEntity entity)
     {
       Console.Clear();
@@ -101,13 +110,17 @@ namespace RepositoryForEntities
             }
           }
         }
-
       }
       else
       {
         File.Create(Path).Close();
       }
     }
+
+    /// <summary>
+    /// Удаление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Delete(IEntity entity)
     {
       Console.Clear();
@@ -134,7 +147,6 @@ namespace RepositoryForEntities
             }
           }
         }
-
       }
       else
       {

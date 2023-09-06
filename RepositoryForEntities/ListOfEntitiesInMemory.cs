@@ -8,6 +8,9 @@ using System.Xml.Linq;
 
 namespace RepositoryForEntities
 {
+  /// <summary>
+  /// Класс для сохранения данных в памяти.
+  /// </summary>
   internal class ListOfEntitiesInMemory : IRepository<IEntity>
   {
     public string Path { private get; set; }
@@ -15,15 +18,18 @@ namespace RepositoryForEntities
     private List<Abonent> abonents = new List<Abonent>();
 
     /// <summary>
-    /// Создание сущности
+    /// Создание сущности.
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">Сущность</param>
     public void Create(IEntity entity)
     {
       Console.Clear();
       abonents.Add(new Abonent(entity.Name, entity.Number));
     }
 
+    /// <summary>
+    /// Чтение сущности.
+    /// </summary>
     public void Read()
     {
       Console.Clear();
@@ -40,6 +46,10 @@ namespace RepositoryForEntities
       }
     }
 
+    /// <summary>
+    /// Обновление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Update(IEntity entity)
     {
       Console.Clear();
@@ -52,6 +62,11 @@ namespace RepositoryForEntities
         }
       }
     }
+
+    /// <summary>
+    /// Удаление сущности.
+    /// </summary>
+    /// <param name="entity">Сущность.</param>
     public void Delete(IEntity entity)
     {
       Console.Clear();

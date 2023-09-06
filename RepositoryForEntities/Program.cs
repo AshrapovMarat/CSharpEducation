@@ -14,6 +14,9 @@ namespace RepositoryForEntities
       SavingEntityInMemory();
     }
 
+    /// <summary>
+    /// Метод для сохранение данных в базе данных.
+    /// </summary>
     static void SavingEntityInDB()
     {
       ListOfEntitiesInDB entite = new ListOfEntitiesInDB();
@@ -90,7 +93,9 @@ namespace RepositoryForEntities
       }
 
     }
-
+    /// <summary>
+    /// Метод для сохранение данных в памяти.
+    /// </summary>
     static void SavingEntityInMemory()
     {
       ListOfEntitiesInMemory entite = new ListOfEntitiesInMemory();
@@ -164,7 +169,9 @@ namespace RepositoryForEntities
         }
       }
     }
-
+    /// <summary>
+    /// Метод для сохранение данных в файл.
+    /// </summary>
     static void SavingEntityInFile()
     {
       string path = "Phonebook.txt";
