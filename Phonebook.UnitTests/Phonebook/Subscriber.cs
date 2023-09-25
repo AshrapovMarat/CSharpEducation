@@ -29,7 +29,7 @@ public class Subscriber
   public override bool Equals(object? obj)
   {
     if (obj is Subscriber subscriber)
-      return subscriber.Id == this.Id;
+      return subscriber.PhoneNumbers[0].Number == this.PhoneNumbers[0].Number;
     return false;
   }
 
