@@ -8,26 +8,25 @@ namespace AsynFileDownload
   {
     static async Task Main(string[] args)
     {
-      string url;
-      string path;
       while (true)
       {
+        string url, path;
+
         Console.WriteLine("Ведите URL-адрес файла которого надо скачать.");
         url = Console.ReadLine();
         Console.WriteLine("Введите путь файла");
         path = Console.ReadLine();
 
         DownloadFileAsync(url, path);
-        
       }
     }
 
     /// <summary>
-    /// Метод для добавления файла.
+    /// Метод для скачивания файла.
     /// </summary>
     /// <param name="url">Url - адрес файла.</param>
     /// <param name="path">Путь с названием файла, куда надо сохранить файл.</param>
-    static void DownloadFile(string url, string path)
+    static void Download(string url, string path)
     {
       using (var client = new WebClient())
       {
@@ -36,15 +35,14 @@ namespace AsynFileDownload
     }
 
     /// <summary>
-    /// Асинхронный метод добавления файла.
+    /// Асинхронный метод скачивания файла.
     /// </summary>
     /// <param name="url">Url - адрес файла.</param>
     /// <param name="path">Путь с названием файла, куда надо сохранить файл.</param>
     /// <returns></returns>
-    async static Task DownloadFileAsync(string url, string path)
+    async static void DownloadFileAsync(string url, string path)
     {
-      await Task.Run(() => DownloadFile(url, path));
+      await Task.Run(() => Download(url, path));
     }
-
   }
 }
